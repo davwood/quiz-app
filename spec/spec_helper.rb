@@ -41,5 +41,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   
-  config.formatter = :documentation
+  # config.formatter = :documentation
 end
