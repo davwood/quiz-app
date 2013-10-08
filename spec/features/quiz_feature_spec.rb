@@ -17,7 +17,15 @@ describe 'the quizzes section' do
       expect(page).to have_content 'Some quiz'
     end
   end
-  
+
+  describe 'an individual quiz' do
+    it 'has its own page' do
+      visit '/quizzes'
+      click_link 'Some quiz'
+
+      expect(page).to have_css 'h1', text: 'Some quiz'
+    end
+  end
 
 
 end
