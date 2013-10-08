@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+quizzes = Quiz.create([{ title: 'Pub Quiz' },
+                       { title: 'Health Quiz' }])
