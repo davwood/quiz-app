@@ -1,4 +1,12 @@
+<%= link_to "Sign up", sign_up_path %>
+<%= link_to "Sign in", sign_in_path %>
+
+<%= link_to "Sign out", sign_out_path, method: "delete" %>
+
 <h1>Quizzes</h1>
 <% @quizzes.each do |q| %>
   <%= link_to q.title, quiz_path(q) %>
 <% end %>
+
+
+
