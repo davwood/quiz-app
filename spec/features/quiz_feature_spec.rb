@@ -8,7 +8,6 @@ describe 'the quizzes section' do
   
   before(:all) do
     create_quiz 'Some quiz'
-    create_question 'Some question'
   end
 
   describe '/quizzes' do
