@@ -8,3 +8,9 @@
 
 quizzes = Quiz.create([{ title: 'Pub Quiz' },
                        { title: 'Health Quiz' }])
+
+users = User.create({ first_name: 'Bob',
+					  last_name: 'Job',
+					  email: 'bob@job.com',
+					  password: 'password',
+					  password_confirmation: 'password' })
