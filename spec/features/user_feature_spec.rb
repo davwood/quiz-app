@@ -3,8 +3,9 @@ require 'spec_helper'
 describe 'the users section' do
   
   describe 'new user form' do
+    
     it 'creates a new user' do
-      visit '/users/new'
+      visit sign_up_path
 
       within '.new_user' do
         fill_in 'First name', with: 'Bob'
@@ -19,6 +20,7 @@ describe 'the users section' do
       expect(current_url).to eq root_url
       expect(page).to have_content 'Welcome to QuizApp, Bob'
     end
+
   end
 
 end
