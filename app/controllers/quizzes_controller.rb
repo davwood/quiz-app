@@ -7,12 +7,30 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
   end
 
+  def edit
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def update
+    if @quiz.update(params[:quiz].permit(:title))
+      redirect_to @quiz
+    else
+      render 'edit'
+    end 
+  end
+
   def new
     @quiz = Quiz.new
+    @quiz.questions.build
   end
 
   def create
-    @quiz = Quiz.create(params[:quiz].permit(:title))
-    redirect_to @quiz
+    @quiz = Quiz.new(params[:quiz].permit(:title, questions_attributes: [:text]))
+
+    if @quiz.save
+      redirect_to @quiz
+    else
+      render 'new'
+    end
   end
 end
