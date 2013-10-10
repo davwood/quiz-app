@@ -57,6 +57,24 @@ describe 'the quizzes section' do
       expect(page).to have_content 'What is your name?'
       expect(Quiz.last.questions).not_to be_empty
     end
+
+    it 'should not accept a new quiz without a title' do
+      visit new_quiz_path
+      click_button 'Create Quiz'
+
+      expect(page).to have_content 'error'
+    end
+
+    it 'should not accept a new quiz with the same title as another quiz' do
+      create_quiz('Some quiz')
+
+      visit new_quiz_path
+      fill_in "Title", with: 'Some quiz'
+      click_button 'Create Quiz'
+
+      expect(page).to have_content 'error'
+    end
+
   end
 
 
