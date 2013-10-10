@@ -25,7 +25,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(params[:quiz].permit(:title, questions_attributes: [:text]))
+    @quiz = Quiz.new(params[:quiz].permit(:title, questions_attributes: [:text, :truth]))
 
     if @quiz.save
       redirect_to @quiz

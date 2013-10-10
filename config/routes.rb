@@ -3,6 +3,7 @@ QuizApp::Application.routes.draw do
   root 'quizzes#index'
   
   resources :quizzes
+  resources :questions
   resources :answers
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

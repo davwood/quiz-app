@@ -51,10 +51,11 @@ describe 'the quizzes section' do
       visit new_quiz_path
 
       fill_in "Title", with: 'Quiz title'
-      fill_in "Question", with: 'What is your name?'
+      fill_in "Question 1", with: 'What is your name?'
+      select('true', :from => 'Answer 1')
       click_button 'Create Quiz'
 
-      expect(page).to have_content 'What is your name?'
+      expect(page).to have_css 'li', text: 'What is your name? : true'
       expect(Quiz.last.questions).not_to be_empty
     end
 

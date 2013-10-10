@@ -1,17 +1,31 @@
 require 'spec_helper'
 
 describe Question do
- it {should belong_to(:quiz)}
- it {should have_many(:answers)}
+  it { should belong_to(:quiz) }
+  it { should have_many(:answers) }
 
- it 'has a correct answer' do
- 	question = Question.create(text: 'Capital of France?')
- 	london = Answer.create(text: 'London', correctness: false)
- 	paris = Answer.create(text: 'Paris', correctness: true)
+  it 'can be true' do
+    question = Question.create(text: 'Is Paris the capital of France?', truth: true)
+    
+    expect(question.truth).to be_true
+  end
 
- 	question.answers << london
- 	question.answers << paris
+  it 'can be false' do
+    question = Question.create(text: 'Is London the capital of France?', truth: false)
 
- 	expect(question.correct_answer).to eq paris
- end
+    expect(question.truth).to be_false
+  end
+
+  it 'knows if an answer is correct' do
+    question = Question.create(text: 'Is Paris the capital of France?', truth: true)
+
+    expect(question.correct_answer?(true)).to be_true
+  end
+
+  it 'knows if an answer is incorrect' do
+    question = Question.create(text: 'Is Paris the capital of France?', truth: true)
+
+    expect(question.correct_answer?(false)).to be_false
+  end
+
 end

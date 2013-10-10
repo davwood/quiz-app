@@ -2,6 +2,6 @@
 
 <ul>
 <% @quiz.questions.each do |question| %>
-	<li><%= question.text %></li>
+	<li><%= question.text %> : <%= question.truth %></li>
 <% end %>
 </ul>
