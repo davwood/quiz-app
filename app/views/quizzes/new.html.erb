@@ -16,8 +16,9 @@
  <!-- rails views this as separate although it is all part of one form.
  .fields_for is also a helper. -->
 	  <%= f.fields_for :questions do |question_f| %>
-	  	<%= question_f.label :text, 'Question' %>
-	  	<%= question_f.text_field :text, placeholder: 'Enter a question' %>
+	  	<% question_no = question_f.index + 1 %>
+	  	<%= question_f.label :text, "Question #{ question_no }" %>
+	  	<%= question_f.text_field :text, placeholder: "Enter question #{ question_no }" %>
 	  <% end %>
 
   <%= f.submit %>

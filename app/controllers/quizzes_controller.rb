@@ -21,7 +21,7 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
-    @quiz.questions.build
+    4.times { @quiz.questions.build }
   end
 
   def create
