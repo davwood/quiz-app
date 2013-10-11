@@ -33,4 +33,9 @@ class QuizzesController < ApplicationController
       render 'new'
     end
   end
+
+  def play
+    @quiz = Quiz.find(params[:id])
+    
+  end
 end

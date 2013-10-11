@@ -2,7 +2,11 @@ QuizApp::Application.routes.draw do
 
   root 'quizzes#index'
   
-  resources :quizzes
+  resources :quizzes do
+    member do
+      get 'play'
+    end
+  end
   resources :questions
   resources :answers
   resources :users

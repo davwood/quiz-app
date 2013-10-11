@@ -2,8 +2,7 @@
 
 <ul>
 <% @quiz.questions.each do |question| %>
-	<li><%= question.text %> : <%= question.truth %></li>
+	<li><%= question.text %></li>
 <% end %>
 </ul>
 
-<%= link_to 'Play', [:play, @quiz] %>
